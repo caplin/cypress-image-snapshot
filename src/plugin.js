@@ -6,7 +6,7 @@
  */
 
 import fs from 'fs-extra';
-import { diffImageToSnapshot } from 'jest-image-snapshot/src/diff-snapshot';
+import { diffImageToSnapshot } from '@caplin/jest-image-snapshot/src/diff-snapshot';
 import path from 'path';
 import pkgDir from 'pkg-dir';
 import { MATCH, RECORD } from './constants';

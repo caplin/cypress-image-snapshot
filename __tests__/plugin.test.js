@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { diffImageToSnapshot } from 'jest-image-snapshot/src/diff-snapshot';
+import { diffImageToSnapshot } from '@caplin/jest-image-snapshot/src/diff-snapshot';
 import {
   matchImageSnapshotOptions,
   matchImageSnapshotPlugin,
 } from '../src/plugin';
 
-jest.mock('jest-image-snapshot/src/diff-snapshot', () => ({
+jest.mock('@caplin/jest-image-snapshot/src/diff-snapshot', () => ({
   diffImageToSnapshot: jest
     .fn()
     .mockReturnValue({ diffOutputPath: '/path/to/diff' }),
