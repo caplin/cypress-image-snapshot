@@ -1,5 +1,9 @@
 # cypress-image-snapshot
 
+## 4.3.1
+
+- Ensure `requireSnapshots` works when snaphots are checked during after hooks.
+
 ## 4.3.0
 
 - Adding cypress env variable `requireSnapshots`. This option, which defaults to true, will mean snapshot tests will fail if a snapshot file does not exist already.
