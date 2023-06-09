@@ -11,6 +11,7 @@ const screenshotsFolder = Cypress.config('screenshotsFolder');
 const updateSnapshots = Cypress.env('updateSnapshots') || false;
 const failOnSnapshotDiff =
   typeof Cypress.env('failOnSnapshotDiff') === 'undefined';
+const requireSnapshots = Cypress.env('requireSnapshots') || true;
 
 export function matchImageSnapshotCommand(defaultOptions) {
   return function matchImageSnapshot(subject, maybeName, commandOptions) {
@@ -42,6 +43,10 @@ export function matchImageSnapshotCommand(defaultOptions) {
           diffPixelCount,
           diffOutputPath,
         }) => {
+          if (added && requireSnapshots && failOnSnapshotDiff) {
+            throw new Error(`The following snaphot file was created ${name}, but there was not snapshot in the repo for comparison.
+            If you would like tests to freely run without snapshots, set the cypress env variable 'requireSnapshots' fo false.`);
+          }
           if (!pass && !added && !updated) {
             const message = diffSize
               ? `Image size (${imageDimensions.baselineWidth}x${
