@@ -1,5 +1,9 @@
 # cypress-image-snapshot
 
+## 4.3.0
+
+- Adding cypress env variable `requireSnapshots`. This option, which defaults to true, will mean snapshot tests will fail if a snapshot file does not exist already.
+
 ## 4.2.0
 
 - Adding support to access details of snapshot diff failures even when using `failOnSnapshotDiff=false`. Details of diff failures can now be accessed from an object stored in `Cypress.env("snapshotDiffs")`, diff details are keyed by the name of the snapshot image.
