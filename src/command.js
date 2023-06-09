@@ -43,7 +43,7 @@ export function matchImageSnapshotCommand(defaultOptions) {
           diffPixelCount,
           diffOutputPath,
         }) => {
-          if (added && requireSnapshots && failOnSnapshotDiff) {
+          if (added && requireSnapshots) {
             throw new Error(`The following snaphot file was created ${name}, but there was not snapshot in the repo for comparison.
             If you would like tests to freely run without snapshots, set the cypress env variable 'requireSnapshots' fo false.`);
           }
